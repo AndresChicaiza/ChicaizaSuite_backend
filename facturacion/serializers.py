@@ -58,6 +58,7 @@ class FacturaListSerializer(serializers.ModelSerializer):
             'cliente', 'cliente_razon_social', 'cliente_documento',
             'condicion_pago', 'medio_pago', 'estado', 'requiere_envio',
             'subtotal', 'valor_iva_total', 'total_retenciones', 'total_a_pagar',
+            'cufe', 'qr_url',
         )
 
 
