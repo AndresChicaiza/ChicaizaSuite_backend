@@ -22,12 +22,12 @@ builder.Services.AddScoped<ChicaizaSuite.Api.Services.SriXmlSignatureService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ChicaizaSuite.Api.Services.ITenantService, ChicaizaSuite.Api.Services.TenantService>();
 
-// CORS - Permitir conexiones desde el Frontend React (Vite en puerto 5173)
+// CORS - Permitir conexiones desde el Frontend (Vercel o Local)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactDev", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -87,7 +87,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.UseCors("AllowReactDev");
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
