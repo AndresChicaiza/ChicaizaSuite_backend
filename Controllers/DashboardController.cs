@@ -23,7 +23,7 @@ namespace ChicaizaSuite.Api.Controllers
             var totalClientes = await _context.Clientes.CountAsync();
             var totalProductos = await _context.Productos.CountAsync();
             var totalFacturas = await _context.Facturas.CountAsync();
-            var ingresosTotales = await _context.Facturas.SumAsync(f => f.ValorTotal);
+            var ingresosTotales = await _context.Facturas.SumAsync(f => (decimal?)f.ValorTotal) ?? 0;
 
             var kpis = new
             {
