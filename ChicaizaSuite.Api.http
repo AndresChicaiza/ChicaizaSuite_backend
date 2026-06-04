@@ -1,0 +1,6 @@
+@ChicaizaSuite.Api_HostAddress = http://localhost:5056
+
+GET {{ChicaizaSuite.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
